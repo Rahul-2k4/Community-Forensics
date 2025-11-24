@@ -1,0 +1,47 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Train (Debug)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "train",
+            "args": [
+                "--gpus", "1",
+                "--cpus-per-gpu", "4",
+                "--epochs", "1",
+                "--batch_size", "8",
+                "--verbose", "2",
+                "--huggingface_train_repo", "OwensLab/CommunityForensics-Small",
+                "--hf_split_train", "train"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Python: Eval (Debug)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "eval",
+            "args": [
+                "--gpus", "1",
+                "--cpus-per-gpu", "4",
+                "--batch_size", "8",
+                "--verbose", "2",
+                "--hf_model_repo", "OwensLab/commfor-model-384",
+                "--huggingface_test_repo", "OwensLab/CommunityForensics-Eval",
+                "--hf_split_test", "CompEval"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Python: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": false
+        }
+    ]
+}
