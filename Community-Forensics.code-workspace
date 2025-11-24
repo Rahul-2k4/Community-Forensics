@@ -1,0 +1,107 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+		"python.terminal.activateEnvironment": true,
+		"python.analysis.typeCheckingMode": "basic",
+		"python.analysis.autoImportCompletions": true,
+		"python.analysis.inlayHints.functionReturnTypes": true,
+		"python.analysis.inlayHints.variableTypes": true,
+		"files.exclude": {
+			"**/__pycache__": true,
+			"**/*.pyc": true,
+			"**/.pytest_cache": true,
+			"**/.ipynb_checkpoints": true,
+			"**/.cache": true
+		},
+		"files.watcherExclude": {
+			"**/__pycache__/**": true,
+			"**/.cache/**": true,
+			"**/wandb/**": true
+		},
+		"search.exclude": {
+			"**/__pycache__": true,
+			"**/wandb": true,
+			"**/.cache": true
+		},
+		"editor.formatOnSave": false,
+		"editor.rulers": [
+			120
+		],
+		"[python]": {
+			"editor.defaultFormatter": "ms-python.black-formatter",
+			"editor.formatOnSave": false,
+			"editor.codeActionsOnSave": {
+				"source.organizeImports": "never"
+			}
+		},
+		"jupyter.notebookFileRoot": "${workspaceFolder}",
+		"notebook.output.textLineLimit": 500,
+		"files.associations": {
+			"*.sh": "shellscript"
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-python.python",
+			"ms-python.vscode-pylance",
+			"ms-python.black-formatter",
+			"ms-toolsai.jupyter",
+			"ms-toolsai.jupyter-keymap",
+			"ms-toolsai.jupyter-renderers",
+			"ms-toolsai.vscode-jupyter-cell-tags",
+			"ms-toolsai.vscode-jupyter-slideshow"
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Python: Train (Debug)",
+				"type": "debugpy",
+				"request": "launch",
+				"module": "train",
+				"args": [
+					"--gpus", "1",
+					"--cpus-per-gpu", "4",
+					"--epochs", "1",
+					"--batch_size", "8",
+					"--verbose", "2",
+					"--huggingface_train_repo", "OwensLab/CommunityForensics-Small",
+					"--hf_split_train", "train"
+				],
+				"console": "integratedTerminal",
+				"justMyCode": false
+			},
+			{
+				"name": "Python: Eval (Debug)",
+				"type": "debugpy",
+				"request": "launch",
+				"module": "eval",
+				"args": [
+					"--gpus", "1",
+					"--cpus-per-gpu", "4",
+					"--batch_size", "8",
+					"--verbose", "2",
+					"--hf_model_repo", "OwensLab/commfor-model-384",
+					"--huggingface_test_repo", "OwensLab/CommunityForensics-Eval",
+					"--hf_split_test", "CompEval"
+				],
+				"console": "integratedTerminal",
+				"justMyCode": false
+			},
+			{
+				"name": "Python: Current File",
+				"type": "debugpy",
+				"request": "launch",
+				"program": "${file}",
+				"console": "integratedTerminal",
+				"justMyCode": false
+			}
+		]
+	}
+}

@@ -1,0 +1,41 @@
+{
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "python.terminal.activateEnvironment": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.inlayHints.variableTypes": true,
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/*.pyc": true,
+        "**/.pytest_cache": true,
+        "**/.ipynb_checkpoints": true,
+        "**/.cache": true
+    },
+    "files.watcherExclude": {
+        "**/__pycache__/**": true,
+        "**/.cache/**": true,
+        "**/wandb/**": true
+    },
+    "search.exclude": {
+        "**/__pycache__": true,
+        "**/wandb": true,
+        "**/.cache": true
+    },
+    "editor.formatOnSave": false,
+    "editor.rulers": [
+        120
+    ],
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": false,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "never"
+        }
+    },
+    "jupyter.notebookFileRoot": "${workspaceFolder}",
+    "notebook.output.textLineLimit": 500,
+    "files.associations": {
+        "*.sh": "shellscript"
+    }
+}
