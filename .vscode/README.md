@@ -53,6 +53,8 @@ The workspace is configured with:
 - **Auto-imports**: Enabled
 - **Format on save**: Disabled (to preserve existing code style)
 - **Virtual environment**: Assumes `.venv` directory (adjust as needed)
+  - **Note**: The default path uses Unix-style paths (`.venv/bin/python`)
+  - **Windows users**: Update to `.venv/Scripts/python.exe` in settings.json
 - **Excluded files**: Caches, build artifacts, and wandb logs
 
 ## Getting Started
@@ -69,7 +71,10 @@ The workspace is configured with:
 
 3. Install recommended extensions when prompted
 
-4. Configure your Python interpreter if needed (default: `.venv/bin/python`)
+4. Configure your Python interpreter if needed:
+   - Default: `.venv/bin/python` (Unix/Linux/macOS)
+   - Windows: `.venv/Scripts/python.exe`
+   - You can change this in `.vscode/settings.json`
 
 5. Use the debug configurations from the Run and Debug panel (Ctrl+Shift+D / Cmd+Shift+D)
 
